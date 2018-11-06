@@ -3,12 +3,12 @@
 sudo apt-get update -qqy
 sudo apt-get upgrade -y
 
-sudo apt-get install -y --fix-missing \
+sudo apt-get install -qy --fix-missing \
     build-essential \
     git \
     wget \
     curl \
-    openssh-server \
+    net-tools\
     zsh \
     graphicsmagick \
     libgraphicsmagick1-dev \
@@ -26,9 +26,6 @@ sudo apt-get install -y --fix-missing \
 
 # Python
 sudo apt-get install python3 python3-pip python3-dev python3-numpy
-
-# update cmake to 12.3
-./cmake
 
 sudo apt-get autoremove -qqy
 sudo apt-get clean 

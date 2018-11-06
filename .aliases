@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-alias ls="ls -GFh"
+
+if [ "$(uname -s)" == "Linux" ]; then
+    alias ls="ls -GFh --color"
+else
+    alias ls="ls -GFh"
+fi
+
 alias ll="ls -la"
 
 # Copy pwd to clipboard
@@ -16,10 +22,16 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Network
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-
+alias whois="whois -h whois-servers.net"
 
 alias hosts="sudo $EDITOR /etc/hosts"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
 ## python env activate
 alias activate="source venv/bin/activate"
+
+# Show CPU temperature with sensors.
+alias cputemp='watch -n 0 "sensors | grep Core"'
+
+# Show GPU temperature with NVIDIA System Management Interface.
+alias gputemp='watch -n 0 "nvidia-smi -q -d temperature"'
