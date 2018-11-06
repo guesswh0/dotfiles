@@ -5,8 +5,6 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source $DOTFILES_DIR/utils.sh
 
-PATH="$DOTFILES_DIR/bin:$PATH"
-
 # Operating System installations
 "./$(get_os)/main.sh"
 

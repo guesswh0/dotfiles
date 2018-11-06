@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-if [ "$(uname -s)" == "Linux" ]; then
+if [ "$(uname -s)" = "Linux" ]; then
     alias ls="ls -GFh --color"
 else
     alias ls="ls -GFh"
