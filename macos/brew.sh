@@ -13,7 +13,6 @@ brew upgrade
 
 # main
 brew install zsh
-brew install zsh-autosuggestions
 brew install git
 brew install tree
 brew install brew-cask-completion

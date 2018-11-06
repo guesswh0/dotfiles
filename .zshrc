@@ -21,8 +21,8 @@ plugins=(
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
-source $HOME/.functions
+source $HOME/.dotfiles/.aliases
+source $HOME/.dotfiles/.functions
 
 # Locale
 export LANG=eu_US.UTF-8
