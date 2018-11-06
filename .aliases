@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+alias ls="ls -GFh"
+alias ll="ls -la"
+
+# Copy pwd to clipboard
+alias cpwd="pwd|tr -d '\n'|pbcopy"
+
+alias reload="source ~/.bash_profile"
+
+alias paths='echo -e ${PATH//:/\\n}'
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Network
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+
+
+alias hosts="sudo $EDITOR /etc/hosts"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+
+## python env activate
+alias activate="source venv/bin/activate"
