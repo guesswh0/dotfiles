@@ -6,7 +6,7 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DOTFILES_DIR/utils.sh
 
 # Operating System installations
-"./$(get_os)/main.sh"
+source $DOTFILES_DIR/$(get_os)/main.sh
 
 # pyenv 
 git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
