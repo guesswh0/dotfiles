@@ -19,11 +19,9 @@ brew install brew-cask-completion
 brew install source-highlight
 brew install nano
 
-brew install python
-brew install python@2
 brew install cmake
-brew install numpy
-brew install opencv
+# brew install numpy
+# brew install opencv
 
 brew tap caskroom/versions
 brew tap caskroom/cask

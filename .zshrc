@@ -2,16 +2,14 @@ ZSH_THEME="spaceship"
 
 SPACESHIP_PROMPT_ORDER=()
 SPACESHIP_PROMPT_ADD_NEWLINE=false
-
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_COLOR=white
-
 SPACESHIP_BATTERY_SHOW=false
-
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION=false
 
 plugins=(
   git
+  pyenv
   command-not-found
   zsh-autosuggestions
   zsh-completions
@@ -23,8 +21,5 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/.aliases
 source $HOME/.dotfiles/.functions
-
-# Locale
-export LANG=eu_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi

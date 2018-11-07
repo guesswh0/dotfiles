@@ -8,6 +8,11 @@ source $DOTFILES_DIR/utils.sh
 # Operating System installations
 "./$(get_os)/main.sh"
 
+# pyenv 
+git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+# pyenv-virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+
 # oh-my-zsh installation
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 export ZSH_CUSTOM=$HOME/.oh-my-zsh/custom

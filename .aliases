@@ -12,7 +12,7 @@ alias ll="ls -la"
 # Copy pwd to clipboard
 alias cpwd="pwd|tr -d '\n'|pbcopy"
 
-alias reload="source ~/.bash_profile"
+alias reload="source ~/.zshrc"
 
 alias paths='echo -e ${PATH//:/\\n}'
 

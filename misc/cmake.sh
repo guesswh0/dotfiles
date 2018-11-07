@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt-get purge -y cmake
 version=3.12
 build=3
 mkdir ~/temp

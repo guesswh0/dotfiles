@@ -3,6 +3,7 @@
 sudo apt-get update -qqy
 sudo apt-get upgrade -y
 
+# main tools
 sudo apt-get install -qy --fix-missing \
     build-essential \
     git \
@@ -10,6 +11,12 @@ sudo apt-get install -qy --fix-missing \
     curl \
     net-tools\
     zsh \
+    pkg-config \
+    software-properties-common \
+    zip
+
+# dependency libs
+sudo apt-get install -qy \
     graphicsmagick \
     libgraphicsmagick1-dev \
     libatlas-base-dev \
@@ -20,12 +27,16 @@ sudo apt-get install -qy --fix-missing \
     libopenblas-dev \
     liblapack-dev \
     libswscale-dev \
-    pkg-config \
-    software-properties-common \
-    zip
 
 # Python
-sudo apt-get install python3 python3-pip python3-dev python3-numpy
+sudo apt-get install -qy \
+    python \
+    python-dev \
+    python-pip \
+    python3 \
+    python3-pip \
+    python3-dev \
+    python3-numpy
 
 sudo apt-get autoremove -qqy
 sudo apt-get clean 
