@@ -1,6 +1,8 @@
 #!/bin/bash
+# Cmake 3.12.3 installation script (ubuntu)
 
 sudo apt-get purge -y cmake
+
 version=3.12
 build=3
 mkdir ~/temp
