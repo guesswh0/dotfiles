@@ -1,11 +1,2 @@
-#!/bin/bash
-
-export EDITOR=vim
 export FIGNORE=DS_Store
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-
-
-#locale
-export LANG=eu_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export NLS_LANG=AMERICAN_AMERICA.AL32UTF8

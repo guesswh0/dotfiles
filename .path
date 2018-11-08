@@ -1,4 +1,0 @@
-#!/bin/bash path 
-
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH=$JAVA_HOME/bin:$PAT
