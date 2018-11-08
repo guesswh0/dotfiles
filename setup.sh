@@ -37,3 +37,13 @@ ln -sfv "$DOTFILES_DIR/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/.hushlogin" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
+
+if ! command_exists zsh; then
+    echo "zsh not found. Please install and then re-run installation scripts"
+    exit 1
+elif ! [[ $SHELL =~ .*zsh.* ]]; then
+    echo "Configuring zsh as default shell"
+    chsh -s "$(command -v zsh)"
+fi
+
+echo "Done. Reload your terminal."
