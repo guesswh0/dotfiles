@@ -52,4 +52,4 @@ sudo make install
 sudo ldconfig
 
 
-# To complete this step, please visit 'http://milq.github.io/install-opencv-ubuntu-debian'.
+# official https://docs.opencv.org/3.4.3/d2/de6/tutorial_py_setup_in_ubuntu.html
