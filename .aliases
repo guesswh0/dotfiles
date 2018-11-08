@@ -1,17 +1,27 @@
 #!/bin/bash
 
-if [ "$(uname -s)" = "Linux" ]; then
-    alias ls="ls -GFh --color"
-else
-    alias ls="ls -GFh"
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # macOS `ls`
+    colorflag="-G"
 fi
 
-alias ll="ls -la"
+alias l="ls -lah ${colorflag}"
+alias la="ls -AF ${colorflag}"s
+alias ll="ls -lFh ${colorflag}"
+alias lld="ls -lah ${colcorflag} | grep ^d"
+
+# remove broken symlinks
+alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
 # Copy pwd to clipboard
 alias cpwd="pwd|tr -d '\n'|pbcopy"
 
+# File size
+alias fs="stat -f \"%z bytes\""
+
 alias reload="source ~/.zshrc"
+alias reload!='RELOAD=1 source ~/.zshrc'
 
 alias paths='echo -e ${PATH//:/\\n}'
 
@@ -24,5 +34,5 @@ alias hosts="sudo $EDITOR /etc/hosts"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
 ## pyenv virtualenv 
-alias activate="pyenv activate"
-alias deactivate="pyenv deactivate"
+# alias activate="pyenv activate"
+# alias deactivate="pyenv deactivate"
