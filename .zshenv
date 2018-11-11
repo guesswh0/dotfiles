@@ -15,10 +15,8 @@ export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 # OS specific exports
 if [ "$(uname -s)" = "Darwin" ]; then 
     source $DOTFILES_DIR/macos/.exports
-    source $DOTFILES_DIR/macos/.paths
     source $DOTFILES_DIR/macos/.aliases
 else
     source $DOTFILES_DIR/ubuntu/.exports
     source $DOTFILES_DIR/ubuntu/.aliases
-    source $DOTFILES_DIR/ubuntu/.paths
 fi

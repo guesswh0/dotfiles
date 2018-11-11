@@ -1,6 +1,3 @@
-# Loading timer 
-# zmodload zsh/zprof
-
 ZSH_THEME="spaceship"
 
 SPACESHIP_PROMPT_ORDER=(
@@ -19,7 +16,7 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_COLOR=white
 SPACESHIP_BATTERY_SHOW=false
-SPACESHIP_DIR_TRUNC_PREFIX='📁 ' 
+SPACESHIP_DIR_TRUNC_PREFIX='../' 
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -47,5 +44,3 @@ source $HOME/.dotfiles/.aliases
 source $HOME/.dotfiles/.functions
 if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-# zprof
