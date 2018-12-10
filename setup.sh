@@ -39,7 +39,7 @@ ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 
 # Create working directory tree
-mkdir -p code/{test/{python,java},dev/{python,java},prod/{python,java}}
+mkdir -p code/{python/{dev,prod},java/{dev,prod}}
 
 if ! command_exists zsh; then
     echo "zsh not found. Please install and then re-run installation scripts"

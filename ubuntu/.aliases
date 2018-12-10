@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Show CPU temperature with sensors.
 alias cputemp='watch -n 0 "sensors | grep Core"'
 

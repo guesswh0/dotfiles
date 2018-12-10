@@ -1,18 +1,19 @@
 #!/bin/bash
 
-sudo apt-get update -qqy
+sudo apt-get update -y
 sudo apt-get upgrade -y
 
-# Tools
+# Main Tools
 sudo apt-get install -qy --fix-missing \
     build-essential \
+    software-properties-common \
     git \
     wget \
     curl \
     net-tools\
     zsh \
+    cmake \
     pkg-config \
-    software-properties-common \
     xz-utils \
     zip
 
@@ -27,7 +28,7 @@ sudo apt-get install -qy \
     python3-numpy
 
 # Dependency libs (dlib)
-sudo apt-get install -qqy \
+sudo apt-get install -y \
     graphicsmagick \
     libgraphicsmagick1-dev \
     libatlas-base-dev \
@@ -40,7 +41,7 @@ sudo apt-get install -qqy \
     libswscale-dev \
 
 # Additional libs (pyenv)
-sudo apt-get install -qqy \
+sudo apt-get install -qy \
     libssl-dev \
     zlib1g-dev \
     libbz2-dev \
@@ -53,6 +54,6 @@ sudo apt-get install -qqy \
     libffi-dev \
     liblzma-dev
 
-sudo apt-get autoremove -qqy
+sudo apt-get autoremove -qy
 sudo apt-get clean 
 sudo rm -rf /tmp/* /var/tmp/*
