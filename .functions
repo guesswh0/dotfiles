@@ -16,3 +16,10 @@ meteo() {
   fi
   curl -s "$LOCALE.wttr.in/$LOCATION"
 }
+
+generate_password() {
+  ((test -n "$1" && test "$1" -ge 0) && \
+    openssl rand -base64 $1 | colrm $(expr $1 + 1)) 2>&-;
+};
+
+alias gp="generate_password"

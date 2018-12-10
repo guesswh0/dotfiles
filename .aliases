@@ -11,6 +11,16 @@ alias la="ls -AF ${colorflag}"s
 alias ll="ls -lFh ${colorflag}"
 alias lld="ls -lah ${colcorflag} | grep ^d"
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Reload shell
+alias reload="source ~/.zshrc"
+alias reload!='RELOAD=1 source ~/.zshrc'
+
 # remove broken symlinks
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
@@ -20,19 +30,16 @@ alias cpwd="pwd|tr -d '\n'|pbcopy"
 # File size
 alias fs="stat -f \"%z bytes\""
 
-alias reload="source ~/.zshrc"
-alias reload!='RELOAD=1 source ~/.zshrc'
-
+# Paths by column
 alias paths='echo -e ${PATH//:/\\n}'
 
 # Network
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias whois="whois -h whois-servers.net"
-
 alias hosts="sudo $EDITOR /etc/hosts"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
 ## pyenv virtualenv 
-# alias activate="pyenv activate"
-# alias deactivate="pyenv deactivate"
+alias activate="pyenv activate"
+alias deactivate="pyenv deactivate"
