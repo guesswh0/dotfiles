@@ -25,7 +25,7 @@ alias reload!='RELOAD=1 source ~/.zshrc'
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
 # Copy pwd to clipboard
-alias cpwd="pwd|tr -d '\n'|pbcopy"
+alias cwd="pwd|tr -d '\n'|pbcopy"
 
 # File size
 alias fs="stat -f \"%z bytes\""

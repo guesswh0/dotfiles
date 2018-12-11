@@ -29,9 +29,6 @@ sudo pmset -a standbydelay 86400
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Menu bar: disable transparency
-defaults write com.apple.universalaccess reduceTransparency -bool true
-
 # Menu bar: show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent YES
 
@@ -307,8 +304,8 @@ defaults write com.googlecode.iterm2 SmartPlacement -bool true
 
 #Before setting this, run iterm2 and kill it, to let global settings to be loaded
 # https://stackoverflow.com/questions/6205157/iterm-2-how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line
-# Setting [Command] + [right] to end-of-line
-# Setting [Command] + [left] to begining-of-line
+# Setting [Command] + [right] to end-of-line (0x05)
+# Setting [Command] + [left] to begining-of-line (0x01)
 
 ###############################################################################
 # Time Machine                                                                #
@@ -316,9 +313,6 @@ defaults write com.googlecode.iterm2 SmartPlacement -bool true
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-# Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Activity Monitor                                                            #

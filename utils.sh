@@ -1,11 +1,8 @@
 #!/bin/bash
 
 get_os() {
-
     local os=""
     local kernelName=""
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     kernelName="$(uname -s)"
 
@@ -18,7 +15,6 @@ get_os() {
     fi
 
     printf "%s" "$os"
-
 }
 
 cmd_exists() {

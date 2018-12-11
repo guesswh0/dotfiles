@@ -1,7 +1,6 @@
 #!/bin/bash
 
-export DOTFILES_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTFILES_DIR=$HOME/.dotfiles
 
 source $DOTFILES_DIR/utils.sh
 
@@ -41,7 +40,7 @@ ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 # Create working directory tree
 mkdir -p code/{python/{dev,prod},java/{dev,prod}}
 
-if ! command_exists zsh; then
+if ! cmd_exists zsh; then
     echo "zsh not found. Please install and then re-run installation scripts"
     exit 1
 elif ! [[ $SHELL =~ .*zsh.* ]]; then
