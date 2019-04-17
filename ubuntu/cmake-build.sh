@@ -17,6 +17,6 @@ mkdir ~/cmake
 sudo tar -xzvf cmake-$version.$build.tar.gz -C ~/cmake
 cd ~/cmake/cmake-$version.$build/
 
-./bootstrap
-make -j$(lscpu -p | egrep -v '^#' | sort -u -t, -k 2,4 | wc -l)
+sudo ./bootstrap
+sudo make -j$(lscpu -p | egrep -v '^#' | sort -u -t, -k 2,4 | wc -l)
 sudo make install
