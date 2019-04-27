@@ -17,6 +17,19 @@ SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_COLOR=white
 SPACESHIP_BATTERY_SHOW=false 
 
+# DIR
+SPACESHIP_DIR_PREFIX=''
+SPACESHIP_DIR_TRUNC='1'
+
+# VENV
+SPACESHIP_VENV_PREFIX="venv:("
+SPACESHIP_VENV_SUFFIX=") "
+
+# PYENV
+SPACESHIP_PYENV_PREFIX="python:("
+SPACESHIP_PYENV_SUFFIX=") "
+SPACESHIP_PYENV_SYMBOL=""
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -25,6 +38,8 @@ ENABLE_CORRECTION=false
 
 plugins=(
   pyenv
+  pip
+  python
   command-not-found
   zsh-autosuggestions
   zsh-completions
@@ -38,9 +53,6 @@ done
 compinit -C
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/.aliases
-source $HOME/.dotfiles/.functions
 
 # pyenv shims
 # if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
-# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
