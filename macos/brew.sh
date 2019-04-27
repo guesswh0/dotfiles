@@ -25,6 +25,11 @@ brew install brew-cask-completion
 brew install source-highlight
 brew install cmake
 
+# Python
+brew install python
+brew install python@2
+brew install pipenv
+
 # Java
 brew cask install java
 brew cask install java8
@@ -39,6 +44,8 @@ brew cask install google-chrome
 brew cask install mplayerx
 brew cask install vlc
 brew cask install cheatsheet
+# brew cask install postman
+# brew cask install advancedrestclient
 
 # Fonts
 brew cask install font-powerline-symbols
