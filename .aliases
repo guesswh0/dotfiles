@@ -39,7 +39,3 @@ alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([
 alias whois="whois -h whois-servers.net"
 alias hosts="sudo $EDITOR /etc/hosts"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
-
-## pyenv virtualenv 
-alias activate="pyenv activate"
-alias deactivate="pyenv deactivate"

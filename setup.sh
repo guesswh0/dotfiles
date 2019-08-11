@@ -11,7 +11,7 @@ source $DOTFILES_DIR/$(get_os)/main.sh
 git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 
 # pyenv-virtualenv
-# git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
 
 # oh-my-zsh installation
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

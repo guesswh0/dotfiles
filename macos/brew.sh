@@ -23,12 +23,17 @@ brew install tree
 brew install wget
 brew install brew-cask-completion
 brew install source-highlight
+
+# Build tools
 brew install cmake
+brew install pkg-config
+brew install readline
+
 
 # Python
-brew install python
-brew install python@2
-brew install pipenv
+# brew install python
+# brew install python@2
+
 
 # Java
 brew cask install java
@@ -44,8 +49,8 @@ brew cask install google-chrome
 brew cask install mplayerx
 brew cask install vlc
 brew cask install cheatsheet
-# brew cask install postman
-# brew cask install advancedrestclient
+brew cask install postman
+
 
 # Fonts
 brew cask install font-powerline-symbols
