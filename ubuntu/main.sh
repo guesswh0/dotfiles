@@ -12,6 +12,7 @@ sudo apt-get install -qy --fix-missing \
     curl \
     net-tools\
     zsh \
+    make \
     cmake \
     pkg-config \
     xz-utils \
@@ -25,20 +26,7 @@ sudo apt-get install -qy \
     python3 \
     python3-pip \
     python3-dev \
-    python3-numpy
-
-# Dependency libs (dlib)
-sudo apt-get install -y \
-    graphicsmagick \
-    libgraphicsmagick1-dev \
-    libatlas-base-dev \
-    libavcodec-dev \
-    libavformat-dev \
-    libgtk2.0-dev \
-    libjpeg-dev \
-    libopenblas-dev \
-    liblapack-dev \
-    libswscale-dev \
+#     python3-numpy
 
 # Additional libs (pyenv)
 sudo apt-get install -qy \
@@ -50,9 +38,11 @@ sudo apt-get install -qy \
     llvm \
     libncurses5-dev \
     libncursesw5-dev \
+    xz-utils \
     tk-dev \
     libffi-dev \
-    liblzma-dev
+    liblzma-dev \
+    python-openssl
 
 sudo apt-get autoremove -qy
 sudo apt-get clean 
