@@ -22,4 +22,12 @@ generate_password() {
     openssl rand -base64 $1 | colrm $(expr $1 + 1)) 2>&-;
 };
 
-alias gp="generate_password"
+unbrew () {
+    local formula
+    for formula in "$@"; do
+        brew deps "$formula" |
+        xargs brew uninstall --ignore-dependencies --force
+        brew uninstall --force "$formula"
+    done
+    brew missing | cut -f2 -d: | sort -u | xargs brew install
+}
