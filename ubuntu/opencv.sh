@@ -7,7 +7,18 @@ if ! [[ -x "$(command -v cmake)" ]]; then
     return
 fi
 
-opencv_version=3.4.4
+opencv_version=3.4.7
+
+# system python and numpy
+#sudo apt-get install python3-dev python3-pip python3-numpy
+
+# pyenv
+python_version=3.6.9
+pyenv install $python_version
+pyenv shell $python_version
+
+# numpy 
+pip3 install numpy~=1.16.4 
 
 # [compiler]
 sudo apt-get install build-essential
@@ -24,35 +35,29 @@ sudo apt-get install libxvidcore-dev libx264-dev
 sudo apt-get install libatlas-base-dev gfortran
 sudo apt-get install libtbb2 libtbb-dev  libjasper-dev libdc1394-22-dev
 
-# Python3
-sudo apt-get install python3-dev python3-pip python3-numpy
+mkdir -p /opt/opencv-$opencv_version && cd /opt/opencv-$opencv_version
 
-mkdir ~/opencv-$opencv_version/ && cd ~/opencv-$opencv_version
+wget -O opencv.zip https://github.com/opencv/opencv/archive/$opencv_version.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/$opencv_version.zip
 
-git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
-git checkout tags/$opencv_version && cd ..
+unzip opencv.zip && mv opencv-$opencv_version opencv
+unzip opencv_contrib.zip && mv opencv_contrib-$opencv_version opencv_contrib
 
-git clone https://github.com/opencv/opencv.git && cd opencv
-git checkout tags/$opencv_version
+cd opencv && mkdir build && cd build
 
-mkdir build && cd build
-
-cmake -DCMAKE_BUILD_TYPE=RELEASE \
-    -DCMAKE_INSTALL_PREFIX=/usr/local \
-    -DOPENCV_EXTRA_MODULES_PATH=~/opencv-$opencv_version/opencv_contrib/modules \
-    -DPYTHON3_LIBRARY=`python3 -c 'import subprocess ; import sys ; s = subprocess.check_output("python3-config --configdir", shell=True).decode("utf-8").strip() ; (M, m) = sys.version_info[:2] ; print("{}/libpython{}.{}.dylib".format(s, M, m))'` \
+PREFIX=`pyenv prefix`
+sudo cmake -DCMAKE_BUILD_TYPE=RELEASE \
+    -DCMAKE_INSTALL_PREFIX=$PREFIX \
+    -DPYTHON3_LIBRARY=`python3 -c 'import subprocess ; import sys ; s = subprocess.check_output("python3-config --configdir", shell=True).decode("utf-8").strip() ; (M, m) = sys.version_info[:2] ; print("{}/libpython{}.{}m.a".format(s, M, m))'` \
     -DPYTHON3_INCLUDE_DIR=`python3 -c 'import distutils.sysconfig as s; print(s.get_python_inc())'` \
-    -DPYTHON3_EXECUTABLE=`which python3` \
-    -DBUILD_opencv_python2=OFF \
-    -DBUILD_opencv_python3=ON \
+    -DPYTHON3_EXECUTABLE=$PREFIX/bin/python3 \
     -DWITH_TBB=ON \
     -DWITH_V4L=ON \
-    -DINSTALL_PYTHON_EXAMPLES=ON \
-    -DINSTALL_C_EXAMPLES=OFF \
-    -DBUILD_EXAMPLES=ON \
-    -DOPENCV_ENABLE_NONFREE=ON ..
+    -DBUILD_opencv_python2=OFF \
+    -DBUILD_opencv_python3=ON ..
+
+# to build with contrib add
+# OPENCV_EXTRA_MODULES_PATH=/opt/opencv-$opencv_version/opencv_contrib/modules
 
 sudo make -j$(lscpu -p | egrep -v '^#' | sort -u -t, -k 2,4 | wc -l)
 sudo make install
-
-sudo ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/lib/python3.6/dist-packages

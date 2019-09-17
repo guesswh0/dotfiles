@@ -4,19 +4,28 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 # Main Tools
-sudo apt-get install -qy --fix-missing \
-    build-essential \
+sudo apt-get install -qy --fix-missing \   
     software-properties-common \
     git \
     wget \
     curl \
-    net-tools\
+    net-tools \
+    openssh-server \
     zsh \
+    zip
+
+# Dev Tools
+sudo apt-get install -qy \
+    build-essential \
     make \
     cmake \
     pkg-config \
-    xz-utils \
-    zip
+    sqlite3 \
+    sqlitebrowser
+
+# Fonts
+sudo apt-get isntall -qy
+    fonts-firacode
 
 # Python
 sudo apt-get install -qy \
