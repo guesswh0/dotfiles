@@ -1,5 +1,9 @@
 #!/bin/bash
-# OpenCV installation script (ubuntu).
+# OpenCV installation script (ubuntu)
+
+# references
+# https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html
+# https://askubuntu.com/questions/783956/how-to-install-opencv-3-1-for-python-3-5-on-ubuntu-16-04-lts
 
 # Cmake
 if ! [[ -x "$(command -v cmake)" ]]; then

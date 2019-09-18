@@ -3,7 +3,7 @@
 # Assume have Apple Command Line Tools $sudo xcode-select --install
 
 # references
-# https://docs.opencv.org/3.4.7/d7/d9f/tutorial_linux_install.html
+# https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html
 # https://stackoverflow.com/questions/33250375/compiling-opencv3-with-pyenv-using-python-3-5-0-on-osx
 # https://hackmd.io/@liangcc/BJB-Asp1-?type=view
 
