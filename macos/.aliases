@@ -6,6 +6,9 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
+# Recursively delete __pycache__ dir files exclude .venv dir
+alias pyclean='find . -type d -name ".venv" -prune -o -name __pycache__ -ls -exec rm -r {} \+'
+
 # To let pyenv play nice with brew@
 alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 
