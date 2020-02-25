@@ -6,3 +6,5 @@
 	user = guesswh0
 [core]
 	excludesfile = ~/.gitignore_global
+[alias]
+	l = log --graph --pretty=format:'%C(bold blue)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
