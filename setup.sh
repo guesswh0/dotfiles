@@ -29,6 +29,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins
 # Bunch of symlinks
 ln -sfv "$DOTFILES_DIR/.zshrc" ~
 ln -sfv "$DOTFILES_DIR/.zshenv" ~
+ln -sfv "$DOTFILES_DIR/.zprofile" ~
 ln -sfv "$DOTFILES_DIR/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/.hushlogin" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
