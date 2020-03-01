@@ -20,6 +20,7 @@ export ZSH=$HOME/.oh-my-zsh
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # pipenv
 export PIPENV_VENV_IN_PROJECT=1
