@@ -5,7 +5,7 @@ export DOTFILES_DIR=$HOME/.dotfiles
 source $DOTFILES_DIR/utils.sh
 
 # Operating System installations
-source $DOTFILES_DIR/$(get_os)/main.sh
+$DOTFILES_DIR/$(get_os)/main.sh
 
 # pyenv 
 git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
@@ -34,9 +34,6 @@ ln -sfv "$DOTFILES_DIR/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/.hushlogin" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
-
-# Create working directory tree
-mkdir -p code/{python/{dev,prod},java/{dev,prod}}
 
 if ! cmd_exists zsh; then
     echo "zsh not found. Please install and then re-run installation scripts"
