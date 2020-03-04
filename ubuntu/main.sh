@@ -4,7 +4,7 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 # Main Tools
-sudo apt-get install -qy --fix-missing \   
+sudo apt-get install -qy \
     software-properties-common \
     git \
     wget \
@@ -24,8 +24,8 @@ sudo apt-get install -qy \
     sqlitebrowser
 
 # Fonts
-sudo apt-get isntall -qy
-    fonts-firacode
+sudo apt-get install -qy
+    fonts-powerline
 
 # Python
 sudo apt-get install -qy \
