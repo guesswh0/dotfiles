@@ -1,5 +1,5 @@
  #!/bin/bash
-# docker-ce installation script (ubuntu)
+# Docker engine installation script (ubuntu docker-ce)
 # https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package
 
 # Uninstall old versions
@@ -8,7 +8,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 # 1. Update the apt package index
 sudo apt-get update
 # 2. Install packages to allow apt to use a repository over HTTPS
-sudo apt-get install 
+sudo apt-get install \
    apt-transport-https \
    ca-certificates \
    curl \
@@ -30,6 +30,8 @@ sudo add-apt-repository \
 sudo apt-get update
 # 2. Install the latest version of Docker Engine - Community and containerd
 sudo apt-get install docker-ce docker-ce-cli containerd.io
+# 3. Verify that Docker Engine - Community is installed correctly by running the hello-world image
+sudo docker run hello-world
 
 ## Manage Docker as a non-root user
 # 1. Create the docker group
