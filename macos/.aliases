@@ -2,13 +2,7 @@
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
-
 # To let pyenv play nice with brew@
 alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
-
-# Python 2 is not maintained since 2020
-alias python='python3'
-alias pip='pip3'

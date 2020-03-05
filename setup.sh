@@ -13,8 +13,8 @@ git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 # pyenv-virtualenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
 
-# oh-my-zsh installation
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# oh-my-zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
 # zsh-syntax-highlighting
@@ -30,7 +30,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins
 ln -sfv "$DOTFILES_DIR/.zshrc" ~
 ln -sfv "$DOTFILES_DIR/.zshenv" ~
 ln -sfv "$DOTFILES_DIR/.zprofile" ~
-ln -sfv "$DOTFILES_DIR/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/.hushlogin" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
