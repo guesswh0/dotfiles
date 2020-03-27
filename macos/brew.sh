@@ -36,7 +36,7 @@ brew cask install iterm2
 brew cask install transmission
 brew cask install smcfancontrol
 brew cask install dropbox
-brew cask install vlc
+brew cask install iina
 
 # Java
 brew cask install java
