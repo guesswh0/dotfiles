@@ -1,13 +1,5 @@
 #!/bin/bash
 
-if ! [ -x "$(command -v brew)" ]; 
-then
-        printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
-else
-        echo "brew already installed!"
-fi
-
-
 brew update
 brew upgrade
 
@@ -37,8 +29,5 @@ brew cask install transmission
 brew cask install smcfancontrol
 brew cask install dropbox
 brew cask install iina
-
-# Java
-brew cask install java
 
 brew cleanup
