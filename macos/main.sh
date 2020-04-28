@@ -8,5 +8,5 @@ else
         echo "brew already installed!"
 fi
 
-$DOTFILES_DIR/macos/brew.sh
+$DOTFILES_DIR/macos/brews.sh
 # source $DOTFILES_DIR/macos/.macos
