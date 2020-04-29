@@ -3,6 +3,9 @@
 brew update
 brew upgrade
 
+# taps
+brew tap homebrew/cask-fonts
+
 # Main tools
 brew install zsh
 brew install git
@@ -29,5 +32,8 @@ brew cask install transmission
 brew cask install smcfancontrol
 brew cask install dropbox
 brew cask install iina
+
+# fonts
+brew cask install font-hack-nerd-font
 
 brew cleanup
