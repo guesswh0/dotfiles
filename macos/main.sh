@@ -9,4 +9,4 @@ else
 fi
 
 $DOTFILES_DIR/macos/brews.sh
-# source $DOTFILES_DIR/macos/.macos
+$DOTFILES_DIR/macos/.defaults
