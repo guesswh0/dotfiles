@@ -1,6 +1,6 @@
 # User specific profile for interactive zsh shells.
 
-ZSH_THEME="agnoster"
+ZSH_THEME="custom"
 DEFAULT_USER="$(whoami)"
 
 plugins=(
@@ -11,7 +11,3 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-prompt_dir() {
-  prompt_segment cyan $CURRENT_FG '\uF115|%2~'
-}
