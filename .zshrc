@@ -1,7 +1,6 @@
 # User specific profile for interactive zsh shells.
 
 ZSH_THEME="custom"
-DEFAULT_USER="$(whoami)"
 
 plugins=(
   zsh-autosuggestions

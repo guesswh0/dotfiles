@@ -1,6 +1,7 @@
-# vim:ft=zsh ts=2 sw=2 sts=2
-#
 # Customized copy of agnoster's theme
+#
+# vim:ft=zsh ts=2 sw=2 sts=2
+# 
 # agnoster's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
@@ -54,7 +55,7 @@ esac
   # what font the user is viewing this source code in. Do not replace the
   # escape sequence with a single literal character.
   # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
-  SEGMENT_SEPARATOR=$'\ue0bc'
+  SEGMENT_SEPARATOR=$'\ue0c0'
 }
 
 # Begin a segment
@@ -65,7 +66,7 @@ prompt_segment() {
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
+    echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR %{$fg%} "
   else
     echo -n "%{$bg%}%{$fg%} "
   fi
@@ -76,7 +77,7 @@ prompt_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR "
   else
     echo -n "%{%k%}"
   fi
@@ -89,7 +90,7 @@ prompt_end() {
 
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+  if [[ "$USER" != "$(whoami)" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
   fi
 }
@@ -140,72 +141,9 @@ prompt_git() {
   fi
 }
 
-prompt_bzr() {
-  (( $+commands[bzr] )) || return
-
-  # Test if bzr repository in directory hierarchy
-  local dir="$PWD"
-  while [[ ! -d "$dir/.bzr" ]]; do
-    [[ "$dir" = "/" ]] && return
-    dir="${dir:h}"
-  done
-
-  local bzr_status status_mod status_all revision
-  if bzr_status=$(bzr status 2>&1); then
-    status_mod=$(echo -n "$bzr_status" | head -n1 | grep "modified" | wc -m)
-    status_all=$(echo -n "$bzr_status" | head -n1 | wc -m)
-    revision=$(bzr log -r-1 --log-format line | cut -d: -f1)
-    if [[ $status_mod -gt 0 ]] ; then
-      prompt_segment yellow black "bzr@$revision ✚"
-    else
-      if [[ $status_all -gt 0 ]] ; then
-        prompt_segment yellow black "bzr@$revision"
-      else
-        prompt_segment green black "bzr@$revision"
-      fi
-    fi
-  fi
-}
-
-prompt_hg() {
-  (( $+commands[hg] )) || return
-  local rev st branch
-  if $(hg id >/dev/null 2>&1); then
-    if $(hg prompt >/dev/null 2>&1); then
-      if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
-        # if files are not added
-        prompt_segment red white
-        st='±'
-      elif [[ -n $(hg prompt "{status|modified}") ]]; then
-        # if any modification
-        prompt_segment yellow black
-        st='±'
-      else
-        # if working copy is clean
-        prompt_segment green $CURRENT_FG
-      fi
-      echo -n $(hg prompt "☿ {rev}@{branch}") $st
-    else
-      st=""
-      rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
-      branch=$(hg id -b 2>/dev/null)
-      if `hg st | grep -q "^\?"`; then
-        prompt_segment red black
-        st='±'
-      elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment yellow black
-        st='±'
-      else
-        prompt_segment green $CURRENT_FG
-      fi
-      echo -n "☿ $rev@$branch" $st
-    fi
-  fi
-}
-
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment cyan $CURRENT_FG '%(4~|\uF115 /%2~|\uf015 %~)'
+  prompt_segment cyan $CURRENT_FG '%(4~|\uf115 /%2~|\uf015 %~)'
 }
 
 # Virtualenv: current working virtualenv
@@ -230,7 +168,7 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
-#AWS Profile:
+# AWS Profile:
 # - display current AWS_PROFILE name
 # - displays yellow on red if profile name contains 'production' or
 #   ends in '-prod'
@@ -252,8 +190,6 @@ build_prompt() {
   prompt_context
   prompt_dir
   prompt_git
-  prompt_bzr
-  prompt_hg
   prompt_end
 }
 
