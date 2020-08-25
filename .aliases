@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# OS specific exports
+if [ "$(uname -s)" = "Darwin" ]; then 
+    # Lock the screen (when going AFK)
+    alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+    # Recursively delete `.DS_Store` files
+    alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+    # To let pyenv play nice with brew@
+    alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
+else
+    # Show CPU temperature with sensors.
+    alias cputemp='watch -n 0 "sensors | grep Core"'
+    # Show GPU temperature with NVIDIA System Management Interface.
+    alias gputemp='watch -n 0 "nvidia-smi -q -d temperature"'
+fi
+
 # Reload shell
 alias reload="source ~/.zshrc"
 alias reload!='RELOAD=1 source ~/.zshrc'

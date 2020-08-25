@@ -3,9 +3,7 @@
 get_os() {
     local os=""
     local kernelName=""
-
     kernelName="$(uname -s)"
-
     if [ "$kernelName" = "Darwin" ]; then
         os="macos"
     elif [ "$kernelName" = "Linux" ] && [ -e "/etc/lsb-release" ]; then
@@ -13,7 +11,6 @@ get_os() {
     else
         os="$kernelName"
     fi
-
     printf "%s" "$os"
 }
 
