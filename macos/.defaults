@@ -313,9 +313,12 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 # Transmission.app                                                            #
 ###############################################################################
 
-# Use `~/Documents/Torrents` to store incomplete downloads
-defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Documents/Torrents"
+# Display a window when opening a torrent file
+defaults write org.m0k.transmission DownloadAsk -int 1
+# Display a window: Only when there are multiple files
+defaults write org.m0k.transmission DownloadAskMulti -int 1
+# Display a window: Only when adding manually
+defaults write org.m0k.transmission DownloadAskManual -int 1
 
 # Use `~/Downloads` to store completed downloads
 defaults write org.m0k.transmission DownloadLocationConstant -bool true
