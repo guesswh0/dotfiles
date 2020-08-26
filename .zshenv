@@ -1,5 +1,6 @@
 skip_global_compinit=1
 
+export EDITOR=$(which nano)
 export ZSH=$HOME/.oh-my-zsh
 
 # dotfiles
