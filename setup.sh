@@ -2,10 +2,12 @@
 
 export DOTFILES_DIR=$HOME/.dotfiles
 
-source $DOTFILES_DIR/utils.sh
-
 # Operating System installations
-$DOTFILES_DIR/$(get_os)/main.sh
+if [ "$(uname -s)" = "Darwin" ]; then 
+    $DOTFILES_DIR/macos/main.sh
+else
+    $DOTFILES_DIR/ubuntu/main.sh
+fi
 
 # pyenv 
 git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
@@ -35,7 +37,7 @@ ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 ln -sfv "$DOTFILES_DIR/custom.zsh-theme" ${ZSH_CUSTOM}/themes
 
-if ! cmd_exists zsh; then
+if ! command -v zsh &> /dev/null; then
     echo "zsh not found. Please install and then re-run installation scripts"
     exit 1
 elif ! [[ $SHELL =~ .*zsh.* ]]; then

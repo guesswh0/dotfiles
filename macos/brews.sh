@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# install brew
+if ! [ -x "$(command -v brew)" ]; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 brew update
 brew upgrade
 
@@ -31,6 +36,7 @@ brew install --cask transmission
 brew install --cask smcfancontrol
 brew install --cask dropbox
 brew install --cask iina
+brew install --cask typora
 brew install --cask ngrok
 
 # fonts
